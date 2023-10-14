@@ -5,9 +5,7 @@ export const filterSlice = createSlice({
   name: 'filter',
   initialState: initialState.filter,
   reducers: {
-    filterSearch: (_, action) => {
-      return action.payload;
-    },
+    filterSearch: (_, action) => action.payload,
   },
 });
 export const filterReducer = filterSlice.reducer;

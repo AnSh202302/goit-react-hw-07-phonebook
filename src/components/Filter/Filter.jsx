@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterSearch } from 'redux/filterSlise';
-import { selectFilter } from 'redux/selector';
+import { getFilter } from 'redux/selector';
 
 export const Filter = () => {
-  const filter = useSelector(selectFilter);
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
-
   const handleSearch = e => dispatch(filterSearch(e.target.value));
 
   return (
