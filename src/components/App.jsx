@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getError, getIsLoading } from 'redux/selector';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
+import { Container, CssBaseline, Typography } from '@mui/material';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -17,13 +18,23 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <>
-      <h1>Phonebook</h1>
-      <Form />
-      <h2>Contacts</h2>
-      {isLoading && !error && <b>Request in progress...</b>}
-      <Filter />
-      <ContactList />
-    </>
+    <CssBaseline>
+      <main>
+        <Container maxWidth="small">
+          <Typography variant="h1" color="textPrimary">
+            Phonebook
+          </Typography>
+          {isLoading && !error && <b>Request in progress...</b>}
+          <Form />
+        </Container>
+        <Container maxWidth="small">
+          <Typography variant="h2" color="textPrimary">
+            Contacts
+          </Typography>
+          <Filter />
+          <ContactList />
+        </Container>
+      </main>
+    </CssBaseline>
   );
 }

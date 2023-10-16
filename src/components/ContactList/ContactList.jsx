@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import ContactListItem from 'components/ContactListItem/ContactListItem';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
@@ -16,11 +17,11 @@ export const ContactList = () => {
   const contactsArr = getVisibleName();
 
   return (
-    <ul>
+    <Grid container spacing={4} marginTop={2}>
       {contactsArr.map(contact => (
         <ContactListItem key={contact.id} contact={contact} />
       ))}
-    </ul>
+    </Grid>
   );
 };
 ContactList.propTypes = {

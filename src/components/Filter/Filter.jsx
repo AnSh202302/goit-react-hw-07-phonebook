@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterSearch } from 'redux/filterSlise';
@@ -11,7 +12,14 @@ export const Filter = () => {
   return (
     <label>
       Find contacts by name
-      <input type="text" value={filter} onChange={handleSearch} required />
+      <TextField
+        id="standard-basic"
+        variant="standard"
+        type="text"
+        value={filter}
+        onChange={handleSearch}
+        required
+      />
     </label>
   );
 };
