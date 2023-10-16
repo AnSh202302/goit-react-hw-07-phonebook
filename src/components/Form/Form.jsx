@@ -1,8 +1,6 @@
-import { nanoid } from '@reduxjs/toolkit';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
-// import { createUser } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selector';
 
 export default function Form() {
@@ -30,7 +28,12 @@ export default function Form() {
       alert(name + ' is already in contacts.');
       return;
     }
-    dispatch(addContact({ name, phone, id: nanoid(5) }));
+    dispatch(
+      addContact({
+        name,
+        phone,
+      })
+    );
     setName('');
     setNamber('');
   };
@@ -50,7 +53,7 @@ export default function Form() {
         />
       </label>
       <label>
-        phone
+        Phone
         <input
           type="tel"
           value={phone}

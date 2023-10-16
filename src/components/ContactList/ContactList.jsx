@@ -1,12 +1,11 @@
+import ContactListItem from 'components/ContactListItem/ContactListItem';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/operations';
+import { useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selector';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  const dispatch = useDispatch();
 
   const getVisibleName = () => {
     const normalizedFilter = filter.toLowerCase();
@@ -18,13 +17,8 @@ export const ContactList = () => {
 
   return (
     <ul>
-      {contactsArr.map(({ name, id, phone }) => (
-        <li key={id}>
-          {name}: {phone}
-          <button type="button" onClick={() => dispatch(deleteContact(id))}>
-            X
-          </button>
-        </li>
+      {contactsArr.map(contact => (
+        <ContactListItem key={contact.id} contact={contact} />
       ))}
     </ul>
   );
