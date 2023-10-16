@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selector';
 import { Button, TextField } from '@mui/material';
-import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
 export default function Form() {
   const [name, setName] = useState('');
   const [phone, setNamber] = useState('');
