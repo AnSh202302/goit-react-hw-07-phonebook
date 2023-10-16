@@ -43,7 +43,7 @@ export const editContact = createAsyncThunk(
   '/contacts/editContact',
   async (contact, thunkAPI) => {
     try {
-      const response = await axios.put(`/contacts/${contact.id}`);
+      const response = await axios.put(`/contacts/${contact.id}`, contact);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
